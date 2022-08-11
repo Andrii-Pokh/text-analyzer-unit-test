@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {{ form(form) }}
+
+    {% if results|length > 0 %}
+        {% for key, item in results %}
+            {% if item is iterable %}
+                <strong>{{ key }}:</strong><br>
+                {% for sub_key, sub_item in item %}
+                    {{ sub_key }} - {{ sub_item }} <br>
+                {% endfor %}
+            {% else %}
+                <strong>{{ key }}:</strong> - {{ item }} <br>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
