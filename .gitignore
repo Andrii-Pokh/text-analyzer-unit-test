@@ -15,3 +15,7 @@
 
 .idea/
 logs/nginx/
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###

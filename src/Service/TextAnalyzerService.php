@@ -64,7 +64,7 @@ class TextAnalyzerService
 
         $res = [];
         foreach ($letters as $key => $char) {
-            $res[$key] = number_format((float)$char/$length, 2, '.', '') . ' %';
+            $res[$key] = number_format((float)$char/$length * 100, 2, '.', '') . ' %';
         }
 
         return $res;
@@ -238,7 +238,7 @@ class TextAnalyzerService
         }
 
         usort($input, function($a, $b) use ($sort) {
-            return $sort === self::SORT_LONGEST ? mb_strlen($a) < mb_strlen($b) : mb_strlen($a) > mb_strlen($b);
+            return $sort === self::SORT_LONGEST ? mb_strlen($b) <=> mb_strlen($a) : mb_strlen($a) <=> mb_strlen($b);
         });
     }
 }
